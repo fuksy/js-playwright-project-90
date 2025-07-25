@@ -18,7 +18,7 @@ test('Проверка авторизации приложения', async ({ pa
   await page.locator(authlocators.authlogin).type('admin')
   await page.locator(authlocators.authpass).type('admin')
   await page.locator(authlocators.authbutton).click()
-    expect(page.locator("//div")).toContainText('Lorem ipsum sic dolor amet...')
+    expect(page.locator("//div[@class='MuiCardContent-root css-1lt5qva-MuiCardContent-root']")).toContainText('Lorem ipsum sic dolor amet...')
 });
 test('Проверка разлогина приложения', async ({ page }) => {
    await page.setViewportSize({ width: 1920, height: 1080 });
