@@ -2,15 +2,10 @@ import { test, expect } from '@playwright/test';
 import { authlocators} from '../pageobjects/locators';
 
 test('Проверка что приложение запускается', async ({ page }) => {
-  await page.goto('http://localhost:5173/'); // Замените '/' на базовый URL вашего приложения
-  
-  // Проверяем, что основной элемент приложения присутствует на странице
-  // Замените 'app' на селектор вашего корневого элемента приложения
+  await page.goto('http://localhost:5173/'); 
   const appElement =  page.locator('//div[@id="root"]');
   await expect(appElement).toBeVisible();
-  
-  // Дополнительная проверка, что страница загрузилась без ошибок
-  await expect(page).not.toHaveTitle('Error'); // Или другая проверка на отсутствие страницы ошибок
+  await expect(page).not.toHaveTitle('Error'); 
 });
 
 test('Проверка авторизации приложения', async ({ page }) => {
