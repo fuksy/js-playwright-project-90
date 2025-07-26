@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint .",
-    "test": "npx playwright test"
+    "lint": "eslint ."
   },
   "dependencies": {
     "@hexlet/testing-task-manager": "^0.1.1",
