@@ -7,8 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-     "postinstall": "npx playwright install chromium",
-  "postci": "npx playwright install chromium"
+    "postinstall": "npx playwright install chromium",
+    "postci": "npx playwright install chromium"
   },
   "dependencies": {
     "@hexlet/testing-task-manager": "^0.1.1",
@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
-    "@playwright/test": "1.54.1",
+    "@playwright/test": "^1.54.1",
     "@types/node": "^22.7.5",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
