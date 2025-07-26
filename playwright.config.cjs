@@ -11,7 +11,7 @@ const { defineConfig, devices } = require('@playwright/test');
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-  testDir: './tests/e2e/',
+  testDir: 'tests/e2e',
   testMatch: '*.spec.js',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -37,14 +37,14 @@ module.exports = defineConfig({
 
   /* Configure projects for major browsers */
   projects: [
-    // {
-    //   name: 'chromium',
-    //   use: {
-    //     ...devices['Desktop Chrome'],
-    //     headless: true,
-    //     channel: 'chromium'
-    //    },
-    // },
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+        headless: true,
+        channel: 'chromium'
+       },
+    },
 
     {
       name: 'firefox',
