@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { authlocators} from '../pageobjects/locators';
+import { authlocators,baselocators} from '../pageobjects/locators';
 
 test('Проверка что приложение запускается', async ({ page }) => {
   await page.goto('http://localhost:5173/'); 
@@ -13,7 +13,7 @@ test('Проверка авторизации приложения', async ({ pa
   await page.locator(authlocators.authlogin).type('admin')
   await page.locator(authlocators.authpass).type('admin')
   await page.locator(authlocators.authbutton).click()
-    expect(page.locator("//span[@class='RaConfigurable-root css-wr3s1y-RaConfigurable-root']")).toContainText('Welcome to the administration')
+    expect(page.locator(baselocators.fillermessage)).toBeVisible()
 });
 test('Проверка разлогина приложения', async ({ page }) => {
    await page.setViewportSize({ width: 1920, height: 1080 });
@@ -21,7 +21,7 @@ test('Проверка разлогина приложения', async ({ page }
   await page.locator(authlocators.authlogin).type('admin')
   await page.locator(authlocators.authpass).type('admin')
   await page.locator(authlocators.authbutton).click()
-    expect(page.locator("//span[@class='RaConfigurable-root css-wr3s1y-RaConfigurable-root']")).toContainText('Welcome to the administration')
+    expect(page.locator(baselocators.fillermessage)).toBeVisible()
   await page.locator(authlocators.profilebutton).click()
   await page.locator(authlocators.logoutbutton).click()
   await expect(page).toHaveURL('http://localhost:5173/#/login');

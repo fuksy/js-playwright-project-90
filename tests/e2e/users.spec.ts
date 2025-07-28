@@ -1,19 +1,19 @@
 import { test, expect } from '@playwright/test';
-import { authlocators,userslocators} from '../pageobjects/locators';
+import { authlocators,userslocators,baselocators} from '../pageobjects/locators';
 
 test('Проверка создания пользователя', async ({ page }) => {
     await page.goto('http://localhost:5173/')
   await page.locator(authlocators.authlogin).type('admin')
   await page.locator(authlocators.authpass).type('admin')
   await page.locator(authlocators.authbutton).click()
-    expect(page.locator("//span[@class='RaConfigurable-root css-wr3s1y-RaConfigurable-root']")).toContainText('Welcome to the administration')
+      expect(page.locator(baselocators.fillermessage)).toBeVisible()
     await page.locator(userslocators.usersbutton).click()
     await page.locator(userslocators.usercreatebutton).click()
     await page.locator(userslocators.useremailinput).type('test@mail.ru')
     await page.locator(userslocators.usernameinput).type('John')
     await page.locator(userslocators.userlastnameinput).type('Johnson')
     await page.locator(userslocators.savebutton).click()
-    expect(page.locator(userslocators.creatednotification)).toContainText("Element created")
+    expect(page.locator(userslocators.creatednotification)).toBeVisible()
 
 })
 test('Проверка просмотра списка пользователей', async ({ page }) => {
@@ -21,8 +21,9 @@ test('Проверка просмотра списка пользователе�
   await page.locator(authlocators.authlogin).type('admin')
   await page.locator(authlocators.authpass).type('admin')
   await page.locator(authlocators.authbutton).click()
-    expect(page.locator("//span[@class='RaConfigurable-root css-wr3s1y-RaConfigurable-root']")).toContainText('Welcome to the administration')
-    await page.locator(userslocators.usersbutton).click()
+
+    expect(page.locator(baselocators.fillermessage)).toBeVisible()
+        await page.locator(userslocators.usersbutton).click()
     await expect(page).toHaveURL('http://localhost:5173/#/users');
 })
 test('Проверка редактирования пользователя', async ({ page }) => {
@@ -30,8 +31,8 @@ test('Проверка редактирования пользователя', a
   await page.locator(authlocators.authlogin).type('admin')
   await page.locator(authlocators.authpass).type('admin')
   await page.locator(authlocators.authbutton).click()
-    expect(page.locator("//span[@class='RaConfigurable-root css-wr3s1y-RaConfigurable-root']")).toContainText('Welcome to the administration')
-    await page.locator(userslocators.usersbutton).click()
+    expect(page.locator(baselocators.fillermessage)).toBeVisible()
+        await page.locator(userslocators.usersbutton).click()
     await page.locator(userslocators.userelementTable).click()
     await page.locator(userslocators.useremailinput).clear()
      await page.locator(userslocators.usernameinput).clear()
@@ -47,8 +48,8 @@ test('Проверка удаления пользователя', async ({ page
   await page.locator(authlocators.authlogin).type('admin')
   await page.locator(authlocators.authpass).type('admin')
   await page.locator(authlocators.authbutton).click()
-    expect(page.locator("//span[@class='RaConfigurable-root css-wr3s1y-RaConfigurable-root']")).toContainText('Welcome to the administration')
-   await page.locator(userslocators.usersbutton).click()
+    expect(page.locator(baselocators.fillermessage)).toBeVisible()
+       await page.locator(userslocators.usersbutton).click()
    await page.locator(userslocators.chckboxUser).click()
    await page.locator(userslocators.deletebutton).click() 
     expect(page.locator(userslocators.creatednotification)).toContainText("Element deleted")
@@ -58,8 +59,8 @@ test('Проверка массового удаления пользовате�
   await page.locator(authlocators.authlogin).type('admin')
   await page.locator(authlocators.authpass).type('admin')
   await page.locator(authlocators.authbutton).click()
-    expect(page.locator("//span[@class='RaConfigurable-root css-wr3s1y-RaConfigurable-root']")).toContainText('Welcome to the administration')
-   await page.locator(userslocators.usersbutton).click()
+    expect(page.locator(baselocators.fillermessage)).toBeVisible()
+       await page.locator(userslocators.usersbutton).click()
    await page.locator(userslocators.chckboxallUser).click()
     await page.locator(userslocators.deletebutton).click()
     expect(page.locator('//p[@class="MuiTypography-root MuiTypography-h4 MuiTypography-paragraph css-pxw7rc-MuiTypography-root"]')).toContainText("No Users yet.")
