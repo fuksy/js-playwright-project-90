@@ -7,8 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "postinstall": "npx playwright install",
-    "postci": "npx playwright install"
+    "poststart": "npm run dev"
   },
   "dependencies": {
     "@hexlet/testing-task-manager": "^0.1.1",
