@@ -13,7 +13,7 @@ test('Проверка авторизации приложения', async ({ pa
   await page.locator(authlocators.authlogin).type('admin')
   await page.locator(authlocators.authpass).type('admin')
   await page.locator(authlocators.authbutton).click()
-    expect(page.locator("//div[@class='MuiCardContent-root css-1lt5qva-MuiCardContent-root']")).toContainText('Lorem ipsum sic dolor amet...')
+    expect(page.locator("//span[@class='RaConfigurable-root css-wr3s1y-RaConfigurable-root']")).toContainText('Welcome to the administration')
 });
 test('Проверка разлогина приложения', async ({ page }) => {
    await page.setViewportSize({ width: 1920, height: 1080 });
@@ -21,7 +21,7 @@ test('Проверка разлогина приложения', async ({ page }
   await page.locator(authlocators.authlogin).type('admin')
   await page.locator(authlocators.authpass).type('admin')
   await page.locator(authlocators.authbutton).click()
-    expect(page.locator("//div[@class='MuiCardContent-root css-1lt5qva-MuiCardContent-root']")).toContainText('Lorem ipsum sic dolor amet...')
+    expect(page.locator("//span[@class='RaConfigurable-root css-wr3s1y-RaConfigurable-root']")).toContainText('Welcome to the administration')
   await page.locator(authlocators.profilebutton).click()
   await page.locator(authlocators.logoutbutton).click()
   await expect(page).toHaveURL('http://localhost:5173/#/login');
