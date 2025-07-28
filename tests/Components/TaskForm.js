@@ -5,7 +5,7 @@ export default class TaskForm extends BasePage {
     super(page);
     this.saveButton = this.page.getByRole('button', { name: 'SAVE' });
     this.showItemInfoButton = this.page.getByRole('link', { name: 'SHOW' });
-    this.assigneeSearchList = this.page.getByRole('comboBox', { name: 'Assignee' });
+    this.assigneeSearchList = this.page.getByRole('combobox', { name: 'Assignee' });
     this.titleTextBox = this.page.getByRole('textBox', { name: 'Title' });
     this.contentTextBox = this.page.getByRole('textBox', { name: 'Content' });
     this.statusDropDownList = this.page.getByRole('comboBox', { name: 'Status' });
@@ -22,7 +22,6 @@ export default class TaskForm extends BasePage {
 
   async fillInAssignee(value) {
     await this.assigneeSearchList.click();
-    await this.assigneeSearchList.fill(value);
     await this.page.getByText(value).click();
   }
 
